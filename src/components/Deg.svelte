@@ -1,0 +1,1 @@
+{String.fromCharCode(0x00B0)}
