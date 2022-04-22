@@ -1,14 +1,12 @@
 import { 
-  getLocaleFromNavigator, 
-  init, 
-  locale, 
+  init,
   register 
 } from 'svelte-i18n';
+
 
 register('en', () => import('../lang/en.json'));
 register('ru', () => import('../lang/ru.json'));
 init({
-  initialLocale: getLocaleFromNavigator(),
+  initialLocale: 'en',
   fallbackLocale: 'en',
 });
-locale.set('en');
