@@ -1,18 +1,21 @@
 {
   "information": {
     "loading": {
-      "0": "Loading please wait",
-      "1": ""
+      "0": "Location search",
+      "1": "please wait"
     },
-    "then": {
+    "done": {
       "0": "Right now in",
-      "1": "it's"
+      "1": "it's a"
     },
-    "notFind": {
-      "0": "Location ",
-      "1": "is not find." 
+    "error": {
+      "0": "Location not found",
+      "1": "please try again" 
     }
-    
+  },
+  "button": {
+    "ru": "RU",
+    "en": "EN"
   },
   "dayOfWeek": {
     "short": {
@@ -112,20 +115,20 @@
     "531": "ragged shower rain",
 
     "600": "light snow",
-    "601": "Snow",
+    "601": "snow",
     "602": "Heavy snow",
-    "611": "Sleet",
-    "612": "Light shower sleet",
+    "611": "sleet",
+    "612": "light shower sleet",
     "613": "Shower sleet",
-    "615": "Light rain and snow",
-    "616": "Rain and snow",
-    "620": "Light shower snow",
-    "621": "Shower snow",
-    "622": "Heavy shower snow",
+    "615": "light rain and snow",
+    "616": "rain and snow",
+    "620": "light shower snow",
+    "621": "shower snow",
+    "622": "heavy shower snow",
 
     "701": "mist",
-    "711": "Smoke",
-    "721": "Haze",
+    "711": "smoke",
+    "721": "haze",
     "731": "sand/ dust whirls",
     "741": "fog",
     "751": "sand",

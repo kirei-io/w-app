@@ -66,6 +66,7 @@ export class OwmApi {
   ) => this.request<GeoResponseInterface[]>(this.endpoint.geo, opts)
     .then(response=>{
       if(!response.length) throw new OwmApiError(400, 'location '+opts.q+' is not find');
+      
       return response;
     });
 

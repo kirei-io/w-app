@@ -3,6 +3,7 @@ import { isLoading, locale } from "svelte-i18n";
 import '../lib/i18n';
 import { lang } from "../lib/stores";
 
+
 lang.subscribe(value => {
   locale.set(value);
 })

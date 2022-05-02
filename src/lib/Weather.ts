@@ -8,9 +8,7 @@ export class Weather implements WeatherAppInterace {
   private constructor(
     public readonly location: LocationType,
     private readonly weatherResponse: OneCallResponseInterface,
-  ) {
-    console.log(this);
-  }
+  ) {}
 
   public static async create(city: string): Promise<Weather> {
     return getWeather(city)

@@ -51,7 +51,7 @@
     border-bottom: 3px solid var(--text-accent-color);
     color: var(--text-accent-color);
     min-width: 2rem;
-    max-width: 20rem;
+    max-width: 16rem;
     background-color: var(--back-ground-color);
     font-size: 1.2rem;
     text-align: center;

@@ -2,7 +2,7 @@
   export let disabled: boolean = false;
 </script>
 
-<button on:click disabled={disabled}>
+<button on:click disabled={disabled} class="{$$props.class}">
   <slot></slot>
 </button>
 
@@ -10,7 +10,7 @@
   button {
 		cursor: pointer;
 		color: var(--text-color);
-		padding: 0.3rem;
+		padding: 0.5rem;
 		transition: box-shadow 0.1s, color 0.1s, background-color 0.1s;
     margin: 0;
 	}
@@ -29,4 +29,7 @@
 		cursor:not-allowed;
 		background-color: var(--background-color);
 	}
+	.footer__button {
+    padding: 1rem 1.5rem;
+  }
 </style>

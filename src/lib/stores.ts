@@ -1,69 +1,38 @@
 import { writable } from "svelte/store";
+import { LocalStorage } from "./LocalStorage";
 
-type ThemeType = 'dark'|'light';
-type LangType = 'en'|'ru';
 
-function localStorageCheck(name: string, deafault: string) {
-  if(!localStorage.getItem(name)) {
-    localStorage.setItem(name, deafault);
-    // debug
-    console.log('Set new: '+localStorage.getItem(name));
-  }
+export const enum Theme {
+  DARK = 'dark',
+  LIGHT = 'light'
+}
+export const enum Lang {
+  EN = 'en',
+  RU = 'ru',
 }
 
-function createCity() {
-  const name = 'city'
-  localStorageCheck(name, 'london');
+export const enum LocalStorageKey {
+  city = 'city',
+  lang = 'lang',
+  theme = 'theme',
+}
 
-  const { subscribe, update, set } = writable<string>(localStorage.getItem(name));
+function createStoreElement<T extends string>(key: LocalStorageKey) {
+  const storage = LocalStorage.getInstance();
+  const { subscribe, update, set } = writable<T>(storage.getItem(key));
 
   return {
     subscribe,
-    set: (value: string) => {
-      localStorage.setItem(name, value);
+    update,
+    set: (value: T) => {
+      storage.setItem(key, value);
       set(value);
-      console.log(name+' updated to '+value);
-      
-    }
-  }
-}
-
-function createLang() {
-  const name = 'lang';
-  localStorageCheck(name, 'en');
-
-  const { subscribe, update, set } = writable<LangType>(localStorage.getItem(name) as LangType);
-
-  return {
-    subscribe,
-    set: (value: LangType) => {
-      localStorage.setItem(name, value);
-      set(value);
-      console.log(name+' updated to '+value);
-    }
-  }
-}
-
-function createTheme() {
-  const name = 'theme';
-  localStorageCheck(name, 'light');
-
-  const { subscribe, update, set } = writable<ThemeType>(localStorage.getItem(name) as ThemeType);
-  
-  return {
-    subscribe,
-    set: (value: ThemeType) => {
-      localStorage.setItem(name, value);
-      set(value);
-      console.log(name+' updated to '+value);
     }
   }
 }
 
 
-
-
-export const city = createCity();
-export const lang = createLang();
-export const inputValue = writable<string>(localStorage.getItem('city'));
-export const theme = createTheme();
+export const city = createStoreElement<string>(LocalStorageKey.city);
+export const lang = createStoreElement<Lang>(LocalStorageKey.lang);
+export const theme = createStoreElement<Theme>(LocalStorageKey.theme);
+export const inputValue = writable<string>(LocalStorage.getInstance().getItem(LocalStorageKey.city));

@@ -9,6 +9,14 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
+.flex_row {
+  display: flex;
+  flex-direction: row;
+}
+.flex_col {
+  display: flex;
+  flex-direction: column;
+}
 
 .theme-light {
   --background-color: #d4e4f3;
@@ -35,3 +43,10 @@ button {
 button:active {
   background: none;
 }
+
+@media only screen and (max-width: 1100px) {
+  html {
+    font-size: 20px;
+  }
+}
+
